@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<div>
+
+<input type="text" id='inputTask'>    
+<button onclick="addTask()">Agregar</button>
+
+<script>
+
+let tasks = []
+
+document.addEventListener('visibilitychange',handler)
+
+function handler(){
+
+let isVisible = document.visibilityState === 'visible'
+isVisible ? console.log('Visible') : console.log('No visible')
+
+
+}
+
+
+function addTask(){
+
+let input = document.getElementById("inputTask")
+let task = new Task(input.value,1)
+input.value = ''
+tasks.push(task);
+// for(i in tasks){
+
+//     console.log(`Contenido del Array: ${tasks[i].description}`)
+
+// }
+
+} 
+
+
+function Task(description,trafficLight){
+
+    this.description =  description,
+    this.trafficLight = trafficLight
+
+    Task.prototype.imprimirDesc = () => console.log(`Tarea ${description}: trafficLight: ${trafficLight}`)
+
+}
+    
+</script>
+
+
+
+</div>
+
+
+
+</body>
+</html>
